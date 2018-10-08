@@ -1,0 +1,59 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Sep 24 11:27:41 2018
+
+@author: deepak
+"""
+
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sns
+from subprocess import check_output
+data=pd.read_csv('/home/deepak/Downloads/dataset/tmdb_5000_movies.csv')
+print(data.info)
+print(data.columns)  # to print all columns
+print(data.head(6))
+print(data.corr())
+f,ax=plt.subplots(figsize=(10,10)) #initialize figure and axis object
+sns.heatmap(data.corr(), annot = True, linewidths=.9, fmt = '.1f', ax = ax) #axis for matplotlib otherwise use currenly active axis
+# width of line that will divide each cell
+# annot if true write data in cell
+plt.show()
+
+#using matplotlib libraray
+
+"""vote_count_data=data['vote_count']
+#print(vote_count_data)  print all vote count data
+# creating figure and axis
+fig,ax=plt.subplots()
+ax.violinplot(vote_count_data,vert=False) 
+plt.plot(vote_count_data,"r-")
+plt.show() """
+
+
+#  line plot between budget vs revenue
+"""data.plot(kind='line',color='r',x='vote_count',y='budget',alpha='.5')
+plt.xlabel('vote_count')
+plt.ylabel('budget')
+plt.title('Line Plot')
+plt.show()  """
+
+
+
+#scatter plot vs vote_count and budget
+data.plot(kind='scatter',x='vote_count',y='budget',alpha='.5',color='b')
+plt.xlabel('vote_count')
+plt.ylabel('budget')
+plt.title('scatter plot')
+plt.show()
+
+
+ #histogram plot
+data.budget.plot(kind='hist',bins=20,figsize=(12,12))
+plt.title('budget histogram')
+plt.show()
+data.vote_count.plot(kind='hist',bins=20,figsize=(15,15))
+plt.title('vote_count histogram')
+plt.show()

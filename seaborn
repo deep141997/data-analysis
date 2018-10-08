@@ -1,0 +1,19 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Sep 24 12:29:45 2018
+
+@author: deepak
+"""
+
+# using seaborn
+import seaborn as sns     #load_dataset load data online repository require internet
+"""iris_data=sns.load_dataset("iris")  #looking data into https://github.com/mwaskom/seaborn-data
+print(iris_data)
+sns.swarmplot(x="species",y="petal_length",data=iris_data) #swarmplot Draw a categorical scatterplot with non-overlapping points
+plt.show() """
+
+tips_data=sns.load_dataset("tips") #looking data into https://github.com/mwaskom/seaborn-data
+print(tips_data)
+sns.violinplot(x="total_bill",data=tips_data)
+plt.show()
